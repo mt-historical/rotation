@@ -13,61 +13,51 @@
 
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
-dofile(minetest.get_modpath("rotation") .. "/rotation.lua")
 
-minetest.register_privilege("rotation", {
-	description="use rotation commands",
+dofile(core.get_modpath("rotation") .. "/rotation.lua")
+
+core.register_privilege("rotation", {
+	description = "use rotation commands",
 })
 
-minetest.register_chatcommand("set_h", {
+core.register_chatcommand("set_h", {
 	params = "<degrees>",
 	description = "Set the horizontal rotation of the player",
-	privs = {rotation=true},
+	privs = { rotation = true },
 	func = function(name, param)
 		local degrees = string.match(param, "^%s*(%-?%d+)%s*$")
 		if degrees ~= nil then
 			rotation.set_h(name, degrees)
 		else
-			rotation.print(name, "Invalid parameters (see /help rotation_set_h)")
+			rotation.print(name, "Invalid parameters (see /help set_h)")
 		end
-	end
+	end,
 })
-minetest.register_chatcommand("set_v", {
+
+core.register_chatcommand("set_v", {
 	params = "<degrees>",
 	description = "Set the vertical rotation of the player",
-	privs = {rotation=true},
+	privs = { rotation = true },
 	func = function(name, param)
 		local degrees = string.match(param, "^%s*(%-?%d+)%s*$")
 		if degrees ~= nil then
 			rotation.set_v(name, degrees)
 		else
-			rotation.print(name, "Invalid parameters (see /help rotation_set_v)")
+			rotation.print(name, "Invalid parameters (see /help set_v)")
 		end
-	end
+	end,
 })
-minetest.register_chatcommand("set_r", {
+
+core.register_chatcommand("set_r", {
 	params = "<degrees>",
 	description = "Set the rotation of the player",
-	privs = {rotation=true},
+	privs = { rotation = true },
 	func = function(name, param)
 		local degrees = string.match(param, "^%s*(%-?%d+)%s*$")
 		if degrees ~= nil then
 			rotation.set(name, degrees)
 		else
-			rotation.print(name, "Invalid parameters (see /help rotation_set)")
+			rotation.print(name, "Invalid parameters (see /help set_r)")
 		end
-	end
-})
-minetest.register_chatcommand("rotation_version", {
-	params = "",
-	description = "Show the rotation version",
-	privs = {rotation=true},
-	func = function(name, param)
-		local result = string.match(param, "^%s*$")
-		if result ~= nil then
-			rotation.version(name)
-		else
-			rotation.print(name, "Invalid parameters (see /help rotation_version)")
-		end
-	end
+	end,
 })

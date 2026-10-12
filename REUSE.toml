@@ -1,0 +1,25 @@
+version = 1
+
+# Source Code + Media
+[[annotations]]
+path = [
+	"*.lua",
+	"*.png"
+]
+SPDX-FileCopyrightText = [
+    "2016 YuGiOhJCJ"
+]
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Metadata/config files
+[[annotations]]
+path = [
+    ".luacheckrc",
+    ".github/**",
+    ".gitattributes",
+    ".cdb.json",
+    "README.md",
+    "mod.conf",
+]
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
